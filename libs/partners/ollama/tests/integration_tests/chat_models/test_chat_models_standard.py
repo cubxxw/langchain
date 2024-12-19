@@ -1,4 +1,4 @@
-"""Test chat model integration."""
+"""Test chat model integration using standard integration tests."""
 
 from typing import Type
 
@@ -16,10 +16,14 @@ class TestChatOllama(ChatModelIntegrationTests):
 
     @property
     def chat_model_params(self) -> dict:
-        return {"model": "llama3-groq-tool-use"}
+        return {"model": "llama3.1"}
 
     @property
     def supports_image_inputs(self) -> bool:
+        return True
+
+    @property
+    def supports_json_mode(self) -> bool:
         return True
 
     @pytest.mark.xfail(
